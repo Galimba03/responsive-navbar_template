@@ -1,0 +1,181 @@
+/* ---- GOOGLE FONTS ---- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* --- VARIABLES CSS ---- */
+:root {
+    --header-height: 3.5rem;
+  
+    /* ---- Colors ---- */
+    /* Color mode: hsl(hue, saturation, lightness) */
+    --black-color: hsl(220, 24%, 12%);
+    --black-color-light: hsl(220, 24%, 15%);
+    --black-color-lighten: hsl(220, 20%, 18%);
+    --white-color: #fff;
+    --body-color: hsl(220, 100%, 97%);
+  
+    /* ---- Font and typography ---- */
+    /* .5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Poppins", sans-serif;
+    --normal-font-size: .938rem;
+  
+    /* ---- Font weight ---- */
+    --font-regular: 400;
+    --font-semi-bold: 600;
+  
+    /* ---- z index ---- */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+  }
+  
+/* ---- Responsive typography ---- */
+@media screen and (min-width: 1024px) {
+    :root {
+        --normal-font-size: 1rem;
+    }
+}
+
+/* ---- BASE ---- */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---- REUSABLE CSS ---- */
+.container {
+    max-width: 100%;
+    margin-inline: 1.5rem;
+}
+
+/* ---- REUSABLE CSS ---- */
+.header {
+    /* positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+
+    /* sizing */
+    width: 100%;
+
+    /* styles */
+    background-color: var(--black-color);
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+}
+
+/* ---- NAVIGATION: NAV ---- */
+.nav {
+    height: var(--header-height);
+}
+
+.nav-logo,
+.nav-burger,
+.nav-close {
+    color: var(--white-color);
+}
+
+.nav-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+
+}
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+
+    font-weight: var(--font-semi-bold);
+}
+
+.nav-logo i {
+    font-weight: initial;
+    font-size: 1.25rem;
+}
+
+.nav-toggle {
+    position: relative;
+
+    width: 32px;
+    height: 32px;
+}
+
+.nav-burger,
+.nav-close {
+    /* aligns at the center of the box 'nav-toggle' */
+    position: absolute;
+    margin: auto;
+    inset: 0;
+
+    width: max-content;
+    height: max-content;
+    font-size: 1.25rem;
+
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+
+.nav-close {
+    opacity: 0;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+
+    color: var(--white-color);
+    background-color: var(--black-color);
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;
+}
+
+.nav-link:hover {
+    background-color: var(--black-color-light);
+}
+
+/* ---- NAVIGATION: NAV for mobiles ---- */
+@media screen and (max-width: 1118px) {
+    .nav-menu {
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .nav-list {
+        padding-top: 1rem;
+
+        background-color: var(--black-color);
+    }
+
+}
