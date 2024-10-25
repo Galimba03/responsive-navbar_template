@@ -57,7 +57,7 @@ a {
 
 /* ---- REUSABLE CSS ---- */
 .container {
-    max-width: 100%;
+    max-width: 1118px;
     margin-inline: 1.5rem;
 }
 
@@ -178,4 +178,196 @@ a {
         background-color: var(--black-color);
     }
 
+}
+
+/* show the menu */
+.show-menu {
+    top: 3.5rem;
+
+    opacity: 1;
+    pointer-events: initial;
+}
+
+/* show the icon */
+.show-icon .nav-burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav-close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* ---- DROPDOWN ---- */
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    font-size: 1.25rem;
+    font-weight: initial;
+
+    transition: transform .4s;
+}
+
+.dropdown-link,
+.dropdown-sublink {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    background-color: var(--black-color-light);
+    transition: background-color .3s;
+}
+
+.dropdown-link i,
+.dropdown-sublink i {
+    font-size: 1.25rem;
+    font-weight: initial;
+}
+
+.dropdown-link:hover,
+.dropdown-sublink:hover {
+    background-color: var(--black-color);
+}
+
+.dropdown-menu,
+.dropdown-submenu {
+    overflow: hidden;
+    max-height: 0;
+
+    transition: max-height .4s ease-out;
+}
+
+.dropdown-item:hover .dropdown-menu,
+.dropdown-subitem:hover > .dropdown-submenu {
+    max-height: 1000px;
+
+    transition: max-height .4s ease-in;
+}
+
+.dropdown-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* submenu */
+.dropdown-add {
+    margin-left: auto;
+    font-weight: initial; /*this prevent the plus sign to return in the initial position after an animation */
+
+    transition: transform .4s; /*need to add this for the animations when the 'plus' is not pointed anymore. See next class rules*/
+}
+
+.dropdown-subitem:hover .dropdown-add {
+    transform: rotate(90deg);
+}
+
+.dropdown-sublink {
+    background-color: var(--black-color-lighten);
+}
+
+/* ---- DROPDOWN ---- */
+/* For small devices */
+@media screen and (max-width: 340px) {
+    .container {
+        margin-inline: 1rem;;
+    }
+
+    .nav-link {
+        padding-inline: 1rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+    .container {
+        margin-inline: auto;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+
+        height: calc(var(--header-height) + 2rem);
+    }
+
+    .nav-toggle{
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+        column-gap: 2rem;
+
+        height: 100%;
+    }
+
+    .nav-link {
+        padding: 0;
+        justify-content: initial;
+        column-gap: .25rem;
+
+        height: 100%;
+    }
+
+    .nav-link:hover {
+        background-color: transparent;
+    }
+
+    .dropdown-item,
+    .dropdown-subitem {
+        position: relative;
+    }
+
+    .dropdown-menu,
+    .dropdown-submenu {
+        position: absolute;
+        left: 0;
+        top: 6rem;
+        overflow: initial;
+        
+        max-height: initial;
+        
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s, top .3s;
+    }
+
+    .dropdown-link,
+    .dropdown-sublink {
+        padding-inline: 1rem 3.5rem;
+    }
+
+    .dropdown-subitem .dropdown-link {
+        padding-inline: 1rem;
+    }
+
+    .dropdown-submenu {
+        position: absolute;
+        left: 100%;
+        top: .5rem;
+    }
+
+    /* show dropdown menu */
+    .dropdown-item:hover .dropdown-menu {
+        top: 5.5rem;
+
+        opacity: 1;
+        pointer-events: initial;
+        transition: top .3s;
+    }
+
+    /* show dropdown submenu */
+    .dropdown-subitem:hover > .dropdown-submenu {
+        top: 0;
+
+        opacity: 1;
+        pointer-events: initial;
+        transition: top;
+    }
 }
