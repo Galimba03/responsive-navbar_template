@@ -10,7 +10,7 @@ To dowload the website there are two metods:
 2. Use the following command inside the folder you want to download the site in:
 
 ```bash
-$ git clone https://github.com/Galimba03/responsive-navbar_template.git
+git clone https://github.com/Galimba03/responsive-navbar_template.git
 ```
 
 ## Contributing
